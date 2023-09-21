@@ -1,0 +1,11 @@
+.ImageGallery {
+    display: flex;
+    flex-wrap: wrap;
+    /* Завернення в новий ряд, якщо не поміщається */
+    justify-content: space-between;
+    /* Рівномірний розподіл по ширині */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
