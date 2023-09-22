@@ -22,20 +22,17 @@ const App = () => {
 
     setLoading(true);
 
-    const fetchImagesData = async () => {
-      try {
-        const data = await fetchImages(query, page);
-
+    fetchImages(query, page)
+      .then((data) => {
         setImages((prevImages) => [...prevImages, ...data]);
         setHasMoreImages(data.length === 12);
-      } catch (error) {
+      })
+      .catch((error) => {
         console.error('Error fetching images:', error);
-      } finally {
+      })
+      .finally(() => {
         setLoading(false);
-      }
-    };
-
-    fetchImagesData();
+      });
   }, [query, page, hasMoreImages]);
 
   const handleFormSubmit = (newQuery) => {
